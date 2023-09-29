@@ -15,24 +15,6 @@ class Classic_Grid:
         
         self.update_entries()
         self.update_containers()
-        
-        
-        
-    def check_entries_and_possible_vals(self):
-        for e_lst in self.entries:
-            for entry in e_lst:
-                if entry.get_solved():
-                    assert entry.get_val != 0, "Solved Entry has a zero value"
-                    assert len(entry.get_possible_vals) == 0, "Solved Entry has a nonempty possible vals set"
-                    assert entry.row.get_solved_vals()[entry.get_val()] is entry
-                    assert entry.col.get_solved_vals()[entry.get_val()] is entry
-                    assert entry.subgrid.get_solved_vals()[entry.get_val()] is entry
-                    
-                        
-                    
-                else:
-                    assert entry.get_val == 0, "Unsolved Entry has a nonzero value"
-                    assert len(entry.get_possible_vals) > 0, "Unsolved Entry has an empty possible vals set"
                     
     
     def update_entries(self):
